@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing:border-box;
+}
+h1 {
+    margin-top: 30px;
+    text-align: center;
+}
+.rectangle {
+    margin-top: 100px;
+    vertical-align: top;
+    width: 850px;
+    height: 250px;
+    display: inline-block;
+    border: 2px solid black;
+    background-color: white;
+    padding: 10px;
+    margin-left: 40px;
+    border-radius: 20px;
+	box-shadow: 5px 5px 8px black;
+    
+}
+.device {
+    margin-left: 50px;
+    margin-top: 50px;
+    display: inline-block;
+}
+.drop {
+    margin-left: 40px;
+    height: 25px;
+    border: 2px solid black;
+    display: inline-block;
+    width: 150px;
+    vertical-align: middle;
+    border-radius: 7px;
+}
+</style>
+</head>
+<body>
+<h1><b>WELDING REMOTE</b></h1>
+<div class="rectangle">
+	<div class="device">
+		<label for="name"><b>Offset Volts</b></label>
+		<select class="drop" name="off" id="volt">
+		<option value="num">0.00</option>
+        </select>
+	</div><br><br>
+	<div class="device">
+		<label for="name"><b>Output Selection</b></label>
+		<select class="drop" name="out" id="put">
+		<option value="disable">Volt out disable</option>
+		<option value="able">0 to 5 volts</option>
+		<option value="dis">0 to 10 volts</option>
+        </select>
+		<select class="drop" name="out" id="put">
+		<option value="current">Current out disable</option>
+		<option value="mega">4 to 20mA</option>
+		<option value="watts">0 to 20mA</option>
+		<option value="nill">0 to 24mA</option>
+        </select>
+	</div>
+</div>
+</body>
+</html>

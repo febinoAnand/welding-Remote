@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing:border-box;
+}
+
+h1 {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.rectangle {
+	vertical-align: top;
+    margin-top: 70px;
+    vertical-align: top;
+    width: 560px;
+	display: inline-block;
+    height: 500px;
+    display: inline-block;
+    border: 2px solid black;
+    background-color: white;
+    padding: 10px 10px;
+    margin-left: 60px;
+}
+.rectangle2 {
+	vertical-align: top;
+    margin-top: 70px;
+    vertical-align: top;
+    width: 250px;
+	display: inline-block;
+    height: 200px;
+    display: inline-block;
+    border: 2px solid black;
+    background-color: white;
+    padding: 10px 10px;
+    margin-left: 10px;
+}
+
+.device {
+    margin-left: 40px;
+    margin-top: 50px;
+    display: inline-block;
+}
+.drop {
+    margin-left: 40px;
+    height: 25px;
+    border: 2px solid black;
+    display: inline-block;
+    width: 150px;
+    vertical-align: middle;
+    border-radius: 7px;
+}
+.centered {
+    margin-left: 40px;
+    margin-top: 20px;
+    width: 50%;
+    border-radius: 5px;
+}
+.dis {
+	margin-left: 30px;
+}
+.cent {
+    margin-left: 40px;
+    margin-top: 30px;
+	
+   
+}
+.drop2 {
+    margin-left: 5px;
+    height: 25px;
+    border: 2px solid black;
+    display: inline-block;
+    width: 50px;
+    vertical-align: middle;
+    border-radius: 7px;
+}
+.drop3 {
+    margin-left: 115px;
+    height: 25px;
+    border: 2px solid black;
+    display: inline-block;
+    width: 50px;
+    vertical-align: middle;
+    border-radius: 7px;
+}
+
+</style>
+</head>
+<body>
+<h1><b>WELDING REMOTE</b></h1>
+<div class="rectangle">
+	<div class="device">
+		<label for="name"><b>Relay Number</b></label>
+		<select class="drop" name="off" id="volt">
+		<option value="num">1</option>
+		<option value="nums">2</option>
+        </select>
+	</div>
+	<div class="rectangle2">
+	<select class="drop2" name="off" id="vol">
+		<option value="num">+</option>
+	</select>
+	<select class="drop3" name="off" id="vol">
+		<option value="num">-</option>
+	</select>
+	</div>	
+	<div class="rectangle2">
+	<select class="drop2" name="off" id="vol">
+		<option value="num">+</option>
+	</select>
+	<select class="drop3" name="off" id="vol">
+		<option value="num">-</option>
+	</select>
+	</div>
+</div>
+<div class="rectangle">
+	<div class="device">
+		<label for="name"><b>TIMINGS</b></label>
+		<label for="name" class="dis">Note : 1 count in the list will be equal to 100ms</label>
+	</div>
+	<div class="cent">
+		<label for="name"><b>ON delay time</b></label>
+		<select class="drop" name="off" id="vol">
+		<option value="num">1</option>
+		<option value="nums">2</option>
+        </select>
+	</div>
+	<div class="cent">
+		<label for="name"><b>ON Time</b></label>
+		<select class="drop" name="off" id="vol1">
+		<option value="numb">1</option>
+		<option value="numb1">2</option>
+        </select>
+	</div>
+	<div class="cent">
+		<label for="name"><b>Switch Type</b></label>
+		<select class="drop" name="off" id="vol2">
+		<option value="num1">SW_LATCH</option>
+		<option value="nums2">SW_MNTRY</option>
+		<option value="nums3">Separate SW_ON SW_OFF </option>
+		</select>
+	</div>
+	<div class="cent">
+		<label for="name"><b>Interlock Relay Number</b></label>
+		<select class="drop" name="off" id="vol3">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">No Interlock</option>
+		</select>
+	</div>
+		
+</div>
+</body>
+</html>

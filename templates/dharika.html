@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SEND HEX</title>
+</head>
+<body>
+	
+	<h1>Welding Remote</h1>
+	<h5>Received:{{received_hex}}</h5>
+	<form action="/remo" method="post">
+		<label for="hex_data">Enter:</label>
+		<input type="text" id="hex_data" name="hex_data">
+		<button type="submit">Send</button>
+		
+	</form>
+	
+</body>
+</html>

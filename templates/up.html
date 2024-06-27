@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../style/weld.css">
+</head>
+
+<body style="background-color:#fff6ec;">
+<h1><b>WELDING REMOTE</b></h1>
+
+<div class="rec">
+    <div class="com">
+        <label for="com"><b>COM</b></label>
+    </div> 
+    <select class="moc" name="num" id="channel9">
+	
+    </select>
+<button class="open" onclick="openSerialPort()">Open</button>
+<button class="close" onclick="closeSerialPort()">Close</button>
+<input class="dev" type="text" id="Cstatus" name="mod">
+</div>
+  
+<div class="rec"> 
+    <div class="square">
+        <div class="sta">
+            <label for="lab"><b>STATUS</b></label>
+			<input class="centered" type="text" id="status" name="status">
+			<button onclick="readclick()" class="read" id="readbutton"><b>Read</b></button>
+			<!-- <p id="statusMessage"></p> -->
+            <button onclick="writeclick()" class="write" id="writebutton"><b>Write</b></button>
+
+        </div>
+    </div>
+    <div class="square"> 
+        <div class="device">
+            <label for="name6"><b>DEVICE NAME</b></label>
+            <input class="dev" type="text" id="name" name="name">
+        </div>
+        <div class="device">
+            <label for="mod6"><b>Mode no: </b></label>
+            <input class="dev" type="text" id="mod" name="mod">
+        </div>
+        <div class="device">
+            <label for="ide6"><b>Device id: </b></label>
+            <input class="dev"  type="text" id="ide" name="ide">
+        </div>
+    </div>
+</div>
+<div class="tab">
+  <button class="tablinks" onclick=screen1()>Device Configurtion Settings</button>
+   <button class="tablinks" onclick=screen2()>Relay Settings</button>
+    <button class="tablinks" onclick=screen3()>Analog Configuration Settings</button>
+</div>
+
+<div class="rect" id="screen1">
+
+    <div class="rectangle">
+        <div class="rectangle1">
+            <div class="channel">
+                <label for="channel"><b>Channel Number</b></label>
+                <select class="drop" name="channel" id="chnumber">
+
+                </select>
+            </div>
+            <div class="channel">
+                <label for="channel"><b>Source Address</b></label>
+                <select class="drop" name="souc1" id="souc">
+                
+                </select>
+            </div>
+            <div class="channel">
+                <label for="sync"><b>Sync Address</b></label>
+                <select class="drop" name="sync" id="sync">
+                    
+                </select>
+            </div>
+            <div class="channel">
+                <label for="dest"><b>Destination Address</b></label>
+                <select class="drop" name="dest" id="dest">
+                    
+                </select>
+            </div>
+            <div class="channel">
+                <label for="sec"><b>Secure Transmission</b></label>
+                <select class="drop" name="transm1" id="transm">
+                    <option value="disable">DISABLE</option>
+                    <option value="enable">ENABLE</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="rectangle">
+        <div class="rectangle1">
+            <div class="first">
+                <label for="fir"><b>First Key</b></label>
+                <select class="key" name="fir1" id="fir">
+                    <option value="none">NONE</option>
+                    <option value="start">START KEY</option>
+                    <option value="up">UP KEY</option>
+                    <option value="down">DOWN KEY</option>
+                    <option value="stop">STOP KEY</option>
+                </select>
+            </div>
+            <div class="first">
+                <label for="sec"><b>Second Key</b></label>
+                <select class="key" name="sec1" id="sec">
+                    <option value="none">NONE</option>
+                    <option value="start">START KEY</option>
+                    <option value="up">UP KEY</option>
+                    <option value="down">DOWN KEY</option>
+                    <option value="stop">STOP KEY</option>
+                </select>
+            </div>
+            <div class="first">
+                <label for="std"><b>Stand By Time Minute</b></label>
+                <select class="key" name="std1" id="std">
+                    <option value="0.5">0.5</option>
+                    <option value="1">1</option>
+                    <option value="1.5">1.5</option>
+                    <option value="2">2</option>
+                    <option value="2.5">2.5</option>
+                    <option value="3">3</option>
+                    <option value="3.5">3.5</option>
+                    <option value="4">4</option>
+                    <option value="4.5">4.5</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="first">
+                <label for="pow"><b>Transmitter Power</b></label>
+                <select class="key" name="pow1" id="pow">
+                    <option value="-30">-30dBm</option>
+                    <option value="-20">-20dBm</option>
+                    <option value="-15">-15dBm</option>
+                    <option value="10">10dBm</option>
+                    <option value="0">0dBm</option>
+                    <option value="5">5dBm</option>
+                    <option value="7">7dBm</option>
+                    <option value="10">10dBm</option>
+                </select>
+            </div>
+            <div class="first">
+                <label for="batt"><b>Low battery V</b></label>
+                <select class="key" name="batt1" id="batt">
+                    <option value="2">2</option>
+                    <option value="2.2">2.2</option>
+                    <option value="2.4">2.4</option>
+                    <option value="2.6">2.6</option>
+                    <option value="2.8">2.8</option>
+                    <option value="3">3</option>
+                    <option value="3.2">3.2</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div> 
+<div class="rect1" id="screen2">
+	<div class="rectangle">
+	<div class="device">
+		<label for="name"><b>Relay Number</b></label>
+		<select class="drop" name="off" id="volt">
+		<option value="num">1</option>
+		<option value="nums">2</option>
+        </select>
+	</div>
+	<div class="rectangle3">
+    <h5 class="head"><b>ON Key Code</b></h5>
+    <button onclick="plus()" class="drop2" id="increments"><b>+</b></button>
+    <span id="Display"> </span>
+    <button class="drop3" onclick="minus()"><b>-</b></button>
+    <div id="dropdownContainer"></div> 
+</div>	
+<div class="rectangle2">
+    <h5 class="head"><b>OFF Key Code</b></h5>
+    <button onclick="plu()" class="drop2" id="increment"><b>+</b></button>
+	<span id="Display"> </span>
+    <button class="drop3" onclick="minu()"><b>-</b></button>
+    <div id="dropdownContainer1"></div>
+</div>
+
+</div>
+
+<div class="rectangle">
+	<div class="device">
+		<label for="name"><b>TIMINGS</b></label>
+		<label for="name" class="dis">Note : 1 count in the list will be equal to 100ms</label>
+	</div>
+	<div class="cent">
+		<label for="name"><b>ON delay time</b></label>
+		<select class="drop1" name="off" id="vol">
+		<option value="num">1</option>
+		<option value="nums">2</option>
+        </select>
+	</div>
+	<div class="cent">
+		<label for="name"><b>ON Time</b></label>
+		<select class="drop1" name="off" id="vol1">
+		<option value="numb">1</option>
+		<option value="numb1">2</option>
+        </select>
+	</div>
+	<div class="cent">
+		<label for="name"><b>Switch Type</b></label>
+		<select class="drop1" name="off" id="vol2">
+		<option value="num1">SW_LATCH</option>
+		<option value="nums2">SW_MNTRY</option>
+		<option value="nums3">Separate SW_ON SW_OFF</option>
+		</select>
+	</div>
+	<div class="cent">
+		<label for="name"><b>Interlock Relay Number</b></label>
+		<select class="drop1" name="off" id="vol3">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">No Interlock</option>
+		</select>
+	</div>
+		
+</div>
+</div>
+<div class="rect1" id="screen3">
+	<div class="rectangle">
+	<div class="device">
+		<label for="name"><b>Offset Volts</b></label>
+		<select class="drop" name="off" id="volt">
+		<option value="num">0.00</option>
+        </select>
+	</div><br><br>
+	<div class="device">
+		<label for="name"><b>Output Selection</b></label>
+		<select class="drop" name="out" id="put">
+		<option value="disable">Volt out disable</option>
+		<option value="able">0 to 5 volts</option>
+		<option value="dis">0 to 10 volts</option>
+        </select>
+		<select class="drop" name="out" id="put">
+		<option value="current">Current out disable</option>
+		<option value="mega">4 to 20mA</option>
+		<option value="watts">0 to 20mA</option>
+		<option value="nill">0 to 24mA</option>
+        </select>
+	</div>
+</div>
+</div>
+<script>
+let portOpened = false; 
+
+function closeSerialPort() {
+    console.log('Close Clicked');
+    
+    fetch('http://localhost:5000/close_port')
+    .then(response => {
+        if (response.ok) {
+            console.log('Serial port closed successfully');
+            portOpened = false; 
+			document.getElementById("Cstatus").value = "Port disconnected";
+        } else {
+            console.error('Failed to close serial port');
+        }
+    })
+    .catch(error => {
+        console.error('Error closing serial port:', error);
+    });
+}
+
+
+function openSerialPort() {
+    var selectedPort = document.getElementById("channel9").value;
+    
+    fetch('http://localhost:5000/connect_port?port_name=' + selectedPort) 
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            if (data.startsWith()) {
+                alert(data);
+            } else if (data.startsWith("Error: Access to")) {
+                alert(data);
+            } else if (data.startsWith("Port not available")) {
+                var portName = data.split(": ")[1];
+                alert("Port not available: " + portName + ". Please check the connection.");
+                document.getElementById("readbutton").disabled = true; 
+                alert("Can't read data from the device.");
+                document.getElementById("Cstatus").value = "Port not connected"; 
+            } else {
+                portOpened = true; 
+                document.getElementById("Cstatus").value = "Port connected"; 
+                
+                sessionStorage.setItem('selectedPort', selectedPort);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
+	
+window.onload = function() {
+    const chnumberSelect = document.getElementById('chnumber');
+	const syncSelect = document.getElementById('sync');
+    const sourceSelect = document.getElementById('souc');
+	const destSelect = document.getElementById('dest');
+	
+	
+
+    for (let i = 0; i <= 255; i++) {
+        const chOption = document.createElement('option');
+        chOption.value = i;
+        chOption.textContent = i;
+        chnumberSelect.appendChild(chOption);
+    }
+
+    for (let i = 0; i <= 65535; i++) {
+        const syncOption = document.createElement('option');
+        syncOption.value = i;
+        syncOption.textContent = i;
+        syncSelect.appendChild(syncOption);
+    }
+	for (let i = 0; i <= 255; i++) {
+        const destOption = document.createElement('option');
+        destOption.value = i;
+        destOption.textContent = i;
+        destSelect.appendChild(destOption);
+    }
+	for (let i = 0; i <= 255; i++) {
+		const soucOption = document.createElement('option');
+		soucOption.value = i;
+		soucOption.textContent = i;
+		sourceSelect.appendChild(soucOption);
+    }
+
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+ 
+    const selectedPort = sessionStorage.getItem('selectedPort');
+    
+    fetch('http://localhost:5000/serial_ports')
+        .then(response => response.json())
+        .then(data => {
+            const select = document.getElementById('channel9');
+            data.forEach(port => {
+                const option = document.createElement('option');
+                option.value = port;
+                option.text = port;
+                select.appendChild(option);
+            });
+            
+           
+            if(selectedPort && data.includes(selectedPort)) {
+                select.value = selectedPort;
+                openSerialPort(); 
+            }
+        })
+        .catch(error => console.error('Error fetching serial ports:', error));
+});
+
+
+function plus() {
+    const dropdownContainer = document.getElementById("dropdownContainer");
+   
+    if (dropdownContainer.children.length < 2) {
+        const newDropdown = document.createElement("select");
+        newDropdown.classList.add("drop4");
+        newDropdown.name = "off";
+        newDropdown.id = "vol" + (dropdownContainer.children.length + 1);
+        
+        const option1 = document.createElement("option");
+        option1.value = "num1";
+        option1.textContent = "STOP KEY";
+
+        const option2 = document.createElement("option");
+        option2.value = "num2";
+        option2.textContent = "START KEY";
+
+        newDropdown.appendChild(option1);
+        newDropdown.appendChild(option2);
+
+        dropdownContainer.appendChild(newDropdown);
+    }
+}
+
+
+function minus() {
+    const dropdownContainer = document.getElementById("dropdownContainer");
+    if (dropdownContainer.children.length > 0) {
+        dropdownContainer.removeChild(dropdownContainer.lastChild);
+    }
+}
+
+function plu() {
+    const dropdownContainer = document.getElementById("dropdownContainer1");
+   
+    if (dropdownContainer.children.length < 2) {
+        const newDropdown = document.createElement("select");
+        newDropdown.classList.add("drop4");
+        newDropdown.name = "off";
+        newDropdown.id = "vol" + (dropdownContainer.children.length + 1);
+
+        const option1 = document.createElement("option");
+        option1.value = "num1";
+        option1.textContent = "STOP KEY";
+
+        const option2 = document.createElement("option");
+        option2.value = "num2";
+        option2.textContent = "START KEY";
+
+        newDropdown.appendChild(option1);
+        newDropdown.appendChild(option2);
+
+        dropdownContainer.appendChild(newDropdown);
+    }
+}
+
+function minu() {
+    const dropdownContainer = document.getElementById("dropdownContainer1");
+    if (dropdownContainer.children.length > 0) {
+        dropdownContainer.removeChild(dropdownContainer.lastChild);
+    }
+}
+
+
+
+
+function screen1() {
+    document.getElementById("screen1").style.display = "block";
+    document.getElementById("screen2").style.display = "none";
+	document.getElementById("screen3").style.display = "none";
+}
+
+function screen2() {
+    
+	document.getElementById("screen1").style.display = "none";
+	document.getElementById("screen2").style.display = "block";
+	document.getElementById("screen3").style.display = "none";
+	
+    
+}
+
+function screen3() {
+	document.getElementById("screen3").style.display = "block";
+    document.getElementById("screen2").style.display = "none";
+	document.getElementById("screen1").style.display = "none";
+    console.log("screen3 shown");
+}
+
+function hexToAscii(hexString) {
+    hexString = hexString.toString().replace(/\s/g, '');
+    let asciiString = '';
+    for (let i = 0; i < hexString.length; i += 2) {
+        let hexByte = hexString.substr(i, 2);
+        let decimalValue = parseInt(hexByte, 16);
+        asciiString += String.fromCharCode(decimalValue);
+    }
+    return asciiString;
+}
+
+function asciiToHex(asciiString) {
+    let hexString = '';
+    for (let i = 0; i < asciiString.length; i++) {
+        let hexCharCode = asciiString.charCodeAt(i).toString(16).toUpperCase();
+        hexString += hexCharCode.padStart(2, '0');
+    }
+    return hexString;
+}
+
+function convertToHex(value) {
+    if (value.trim() === '') {
+        throw new Error('Input value cannot be empty.');
+    }
+
+    if (!isNaN(value)) {
+        return parseInt(value).toString(16).toUpperCase().padStart(2, '0');
+    }
+
+    switch (value.toUpperCase()) {
+        case 'DISABLE':
+            return '00'; 
+        case 'ENABLE':
+            return '01'; 
+        default:
+            throw new Error(`Invalid input value: '${value}' is not a valid number or out of range.`);
+    }
+}
+
+function generateDynamicHexData() {
+    let chnumber = document.getElementById('chnumber').value;
+    let sync = document.getElementById('sync').value;
+    let pow = document.getElementById('pow').value;
+    let dest = document.getElementById('dest').value;
+    let souc = document.getElementById('souc').value;
+    let std = document.getElementById('std').value;
+    let batt = document.getElementById('batt').value;
+    let transm = document.getElementById('transm').value; 
+    let fir = document.getElementById('fir').value; 
+    let sec = document.getElementById('sec').value; 
+    let ide = document.getElementById('ide').value; 
+    let modAscii = document.getElementById('mod').value.trim(); 
+    
+    let modHexFinal = asciiToHex(modAscii);
+    
+    let chnumberHex = convertToHex(chnumber);
+    let syncHex = convertToHex(sync);
+    let powHex = convertToHex(pow);
+    let destHex = convertToHex(dest);
+    let soucHex = convertToHex(souc);
+    let stdHex = convertToHex(std); 
+    let battHex = convertToHex(batt);
+    let transmHex = convertToHex(transm); 
+    let firHex = convertToHex(fir); 
+    let secHex = convertToHex(sec); 
+
+    let dynamicHexData1 = chnumberHex + "2C002C" + syncHex + "2C" + powHex + "2C" + stdHex + "2C" + destHex + "2C" + soucHex;
+    let dynamicHexData2 = "18" + battHex; 
+    let dynamicHexData3 = "19" + transmHex + "2C" + firHex + "2C" + secHex + "010205001B01";
+    let dynamicHexData4 = "20" + modHexFinal + "2C0000" + ide;
+
+    return {
+        dynamicHexData1,
+        dynamicHexData2,
+        dynamicHexData3,
+        dynamicHexData4,
+    };
+}
+
+
+
+function writeclick() {
+    if (!portOpened) {
+        alert("Please connect port first.");
+        return;
+    }
+
+    var serialPortAvailable = true; 
+    if (serialPortAvailable) {
+        document.getElementById("status").value = "Write Started";
+
+        let { dynamicHexData1, dynamicHexData2, dynamicHexData3, dynamicHexData4 } = generateDynamicHexData();
+
+        let hexData1 = "0102110D15" + dynamicHexData1;
+        let hexData2 = "01020510" + dynamicHexData2;
+        let hexData3 = "01020912" + dynamicHexData3;
+        let hexData4 = "01020F001C" + dynamicHexData4;
+
+        console.log('Sending hex data 1:', hexData1);
+        console.log('Sending hex data 2:', hexData2);
+        console.log('Sending hex data 3:', hexData3);
+        console.log('Sending hex data 4:', hexData4);
+
+        Promise.all([
+            fetch('http://localhost:5000/up', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ hex_data: hexData1 })
+            }),
+            fetch('http://localhost:5000/up', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ hex_data: hexData2 })
+            }),
+            fetch('http://localhost:5000/up', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ hex_data: hexData3 })
+            }),
+            fetch('http://localhost:5000/up', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ hex_data: hexData4 })
+            })
+        ])
+        .then(responses => {
+            return Promise.all(responses.map(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to send hex data: Server responded with ' + response.status);
+                }
+                return response.json();
+            }));
+        })
+        .then(dataArray => {
+            dataArray.forEach(data => {
+                console.log('Server response:', data);
+            });
+            console.log('All hex data sent successfully');
+            alert('All hex data sent successfully');
+        })
+        .catch(error => {
+            console.error('Error sending hex data:', error);
+            alert('Error sending hex data: ' + error.message);
+        })
+        .finally(() => {
+            document.getElementById("status").value = "Write Completed";
+        });
+    } else {
+        document.getElementById("status").value = "Write failed";
+    }
+}
+
+
+function readclick() {
+    if (!portOpened) {
+        alert("Please connect port first.");
+        return;
+    }
+
+    var serialPortAvailable = true; 
+
+    if (serialPortAvailable) {
+        document.getElementById("status").value = "Read Started";
+       
+        setTimeout(function() {
+            document.getElementById("status").value = "Read Succeeded";
+        }, 2000); 
+    } else {
+        document.getElementById("status").value = "Read failed";
+    }
+    
+
+    fetch('http://localhost:5000/up')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Received data:', data);
+			
+            const modeNo = data['Mode no']; 
+            const devicename = data['Device name'];
+            const deviceid = data['Device id'];
+			updateTextFields(modeNo, devicename, deviceid);
+            const channelData = data['Channel'];
+            const syncData = data['Sync Address'];
+            const destData = data['Destination Address'];
+            const sourceData = data['Source Address'];
+            const transmData = data['Combo Secure']; 
+            const firData = data['Combo First Key'];
+            const secData = data['Combo Second Key'];
+            const stdData = data['Standby Time'];
+            const powData = data['Transmitter Power'];
+            const battData = data['Low battery v'];
+
+            updateDropdowns(channelData, syncData, destData, sourceData, transmData, firData, secData, stdData, powData, battData);
+            
+			
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            alert("Error fetching data: " + error.message);
+        });
+}
+
+
+function updateDropdowns(channelData, syncData, destData, sourceData, transmData, firData, secData, stdData, powData, battData) {
+
+    const chnumberSelect = document.getElementById('chnumber');
+    const syncSelect = document.getElementById('sync');
+    const destSelect = document.getElementById('dest');
+    const sourceSelect = document.getElementById('souc');
+    const secureSelect = document.getElementById('transm'); 
+    const firstSelect = document.getElementById('fir');
+    const secondSelect = document.getElementById('sec');
+    const standbySelect = document.getElementById('std');
+    const transSelect = document.getElementById('pow');
+    const lowSelect = document.getElementById('batt');
+
+    
+    chnumberSelect.innerHTML = '';
+    syncSelect.innerHTML = '';
+    destSelect.innerHTML = '';
+    sourceSelect.innerHTML = '';
+    firstSelect.innerHTML = '';
+    secondSelect.innerHTML = '';
+    standbySelect.innerHTML = '';
+    transSelect.innerHTML = '';
+    lowSelect.innerHTML = '';
+	secureSelect.innerHTML = '';
+
+    
+    createOption(chnumberSelect, channelData);
+    createOption(syncSelect, syncData);
+    createOption(destSelect, destData);
+    createOption(sourceSelect, sourceData);
+	
+
+    
+    const securekeys = ['DISABLE', 'ENABLE'];
+    securekeys.forEach((key, index) => {
+        const option = createOptionElement(index.toString(), key);
+        if (index.toString() === transmData.toString()) {
+            option.selected = true;
+        }
+       secureSelect.appendChild(option);
+    });
+
+
+	
+
+const firstSelectKeys = ['NONE', 'UP KEY', 'STOP KEY', 'START KEY', 'DOWN KEY'];
+firstSelectKeys.forEach((key, index) => {
+    if (key === 'DOWN KEY') {
+        index = 4; 
+    } else if (key === 'START KEY') {
+        index = 8; 
+    }
+
+    const option = createOptionElement(index.toString(), key);
+    if (index.toString() === firData.toString()) {
+        option.selected = true;
+    }
+    firstSelect.appendChild(option);
+});
+
+const secondSelectKeys = ['NONE', 'UP KEY', 'STOP KEY', 'START KEY', 'DOWN KEY'];
+secondSelectKeys.forEach((key, index) => {
+    if (key === 'DOWN KEY') {
+        index = 4; 
+    } else if (key === 'START KEY') {
+        index = 8; 
+    }
+
+    const option = createOptionElement(index.toString(), key);
+    if (index.toString() === secData.toString()) {
+        option.selected = true;
+    }
+    secondSelect.appendChild(option);
+});
+
+
+
+    const standbyTimes = ['0.5', '1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5'];
+    const stdValue = parseInt(stdData); 
+    standbyTimes.forEach((time, index) => {
+        const option = createOptionElement(index.toString(), time);
+        if (index === stdValue) {
+            option.selected = true;
+        }
+        standbySelect.appendChild(option);
+    });
+
+
+
+    const transmitterPowers = ['-30 dBm', '-20 dBm', '-15 dBm', '-10 dBm', '0 dBm', '5 dBm', '7 dBm', '10 dBm'];
+    const powValue = parseInt(powData);
+    transmitterPowers.forEach((power, index) => {
+        const option = createOptionElement(index.toString(), power);
+        if (index === powValue) {
+            option.selected = true;
+        }
+        transSelect.appendChild(option);
+    });
+
+
+    
+   const batteryLevels = ['2', '2.2', '2.4', '2.6', '2.8', '3', '3.2'];
+    const battValue = parseInt(battData); 
+    batteryLevels.forEach((level, index) => {
+        const option = createOptionElement(index.toString(), level);
+        if (index === battValue) {
+            option.selected = true;
+        }
+        lowSelect.appendChild(option);
+    });
+
+
+    
+    populateNumericalOptions(chnumberSelect, 0, 255);
+    populateNumericalOptions(syncSelect, 0, 65535);
+    populateNumericalOptions(destSelect, 0, 255);
+    populateNumericalOptions(sourceSelect, 0, 255);
+}
+
+function populateStandbyOptions(selectElement, options) {
+    options.forEach(option => {
+        selectElement.appendChild(createOptionElement(option, option));
+    });
+}
+
+function populateTransPowerOptions(selectElement, options) {
+    options.forEach(option => {
+        selectElement.appendChild(createOptionElement(option, option));
+    });
+}
+
+function populateBattOptions(selectElement, options) {
+    options.forEach(option => {
+        selectElement.appendChild(createOptionElement(option, option));
+    });
+}
+
+function populateNumericalOptions(selectElement, start, end) {
+    for (let i = start; i <= end; i++) {
+        selectElement.appendChild(createOptionElement(i, i));
+    }
+}
+function createOptionElement(value, text) {
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = text;
+    return option;
+}
+
+
+
+
+function createOption(selectElement, value) {
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = value;
+    selectElement.appendChild(option);
+}
+function updateTextFields(modeNo, devicename, deviceid) {
+    const modeTextElement = document.getElementById('mod');
+    const ideTextElement = document.getElementById('ide');
+
+    const userModValue = modeTextElement.value.trim();
+    const userIdeValue = ideTextElement.value.trim();
+
+    if (userModValue !== '') {
+        modeTextElement.value = userModValue;
+    } else {
+        modeTextElement.value = modeNo; 
+    }
+
+    if (userIdeValue !== '') {
+        ideTextElement.value = userIdeValue; 
+    } else {
+        ideTextElement.value = deviceid; 
+    }
+
+    const devicenameTextElement = document.getElementById('name');
+    devicenameTextElement.value = devicename;
+}
+
+</script>
+</body>
+</html>

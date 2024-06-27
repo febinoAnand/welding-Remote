@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display Selected Data</title>
+</head>
+<body>
+
+<select id="dropdown">
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+</select>
+
+<button onclick="displaySelected()">Read</button>
+
+<div id="selectedData"></div>
+
+<script>
+function displaySelected() {
+  
+  var dropdown = document.getElementById("dropdown");
+  
+  var selectedValue = dropdown.value;
+  
+  var displayArea = document.getElementById("selectedData");
+  
+}
+  
+</script>
+
+</body>
+</html>
