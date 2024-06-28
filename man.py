@@ -7,7 +7,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-socketio = SocketIO(app, async_mode='eventlet') 
+socketio = SocketIO(app)
 
 parsed_data = {}
 port_name = None
@@ -98,11 +98,13 @@ def send_hex_data():
     global ser, parsed_data
     try:
         data = request.json
+        print ("Request data-->",data)
         
         if not data:
             return jsonify({'error': 'No JSON data received'}), 400
         
         hex_data = data.get('hex_data')
+        print ("Request data-->",hex_data)
         
         if hex_data is None:
             return jsonify({'error': 'Hex data not provided in request'}), 400
@@ -110,6 +112,7 @@ def send_hex_data():
         send_hex(hex_data, ser)
         
         socketio.emit('data_update', parsed_data)
+        print ("parsed data-->                                    :", parsed_data)
         return jsonify({'message': 'Hex data sent successfully'})
     
     except ValueError as ve:
@@ -210,3 +213,5 @@ def handle_disconnect():
 
 if __name__ == "__main__":
     socketio.run(app, debug=True)
+
+

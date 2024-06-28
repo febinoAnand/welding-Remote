@@ -1,10 +1,377 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="../style/weld.css">
+<style>
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing:box-border;
+}
+h1 {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.rec {
+    margin-top: 40px;
+    vertical-align: top;
+    width: 550px;
+    height: 150px;
+    display: inline-block;
+    border: 2px solid 	#ff8000;
+    background-color: white;
+    padding: 10px;
+    margin-left: 40px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 8px 	#ff8000;
+}
+
+.square {
+    width: 265px;
+    vertical-align: top;
+    height: 140px;
+    border: 2px solid white;
+    display: inline-block;
+}
+
+.rect {
+    
+    vertical-align: top;
+    width: 1180px;
+    height: 500px;
+    display: inline-block;
+    border: 2px solid 	#ff8000;
+    background-color: white;
+    padding: 10px;
+    margin-left: 40px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 8px 	#ff8000;
+}
+
+.rect1 {
+    
+    vertical-align: top;
+    width: 1180px;
+    height: 500px;
+    display: none;
+    border: 2px solid #ff8000;
+    background-color: white;
+    padding: 10px;
+    margin-left: 40px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 8px #ff8000;
+}
+.drop1 {
+	margin-top: 20px;
+	margin-bottom: 20px;
+    margin-left: 40px;
+    height: 25px;
+    border: 2px solid black;
+    display: inline-block;
+    width: 150px;
+    vertical-align: middle;
+    border-radius: 7px;
+}
+.dis {
+	margin-left: 30px;
+}
+.tab {
+  overflow: hidden;
+  border-radius: 5px solid black;
+  
+}
+.tab1 {
+  margin-top: 25px;
+  margin-left: 40px;
+  background-color: white;
+  border-radius: 20px 20px 0 0;
+  float: left;
+  border: 2px solid #ff8000;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  transition: 0.3s;
+  font-size: 17px;
+  
+}
+
+.tab2 {
+  margin-top: 25px;
+  /* margin-left: 10px; */
+  background-color: white;
+  border-radius: 20px 20px 0 0;
+  float: left;
+  border: 2px solid #ff8000;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab3 {
+  margin-top: 25px;
+  /* margin-left: 40px; */
+  background-color: white;
+  border-radius: 20px 20px 0 0;
+  float: left;
+  border: 2px solid #ff8000;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button:hover {
+ background-color: #c0c0c0;
+  color: white;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid black;
+  border-top: none;
+}
+.drop2 {
+	margin-top: 20px;
+    margin-left: 5px;
+    height: 25px;
+    border: 2px solid black;
+    display: inline-block;
+    width: 50px;
+    border-radius: 7px;
+}
+
+.drop3 {
+	
+    margin-left: 80px;
+    height: 25px;
+    border: 2px solid black;
+    display: inline-block;
+    width: 50px;
+	border-radius: 7px;
+}
+.rectangle2 {
+	vertical-align: top;
+    margin-top: 70px;
+    width: 200px;
+	display: inline-block;
+    height: 200px;
+    border: 2px solid black;
+    background-color: white;
+    padding: 10px 10px;
+    margin-left: 10px;
+}
+
+.rectangle3 {
+	vertical-align: top;
+    margin-top: 70px;
+    width: 200px;
+	display: inline-block;
+    height: 200px;
+    border: 2px solid black;
+    background-color: white;
+    padding: 10px 10px;
+    margin-left: 30px;
+}
+.drop4 {
+	margin-top: 30px;
+    margin-left: 50px;
+    height: 25px;
+    border: 2px solid black;
+    display: inline-block;
+    /* width: 70px; */
+	border-radius: 7px;
+}
+
+.com {
+    margin-left: 15px;
+    margin-top: 20px;
+    display: inline-block; 
+}
+
+.moc {
+    margin-left: 50px;
+    display: inline-block;
+    width: 20%;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.moc:hover {
+    background-color: grey;
+    color: white;
+}
+
+.open {
+    background-color: white;
+    width: 15%;
+    color: black;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 2px solid black;
+    margin-top: 40px;
+    margin-left: 70px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.open:hover {
+    background-color: grey;
+    color: white;
+}
+
+.close {
+    background-color: white;
+    width: 15%;
+    color: black;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 2px solid black;
+    margin-top: 40px;
+    margin-left: 50px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.close:hover {
+    background-color: grey;
+    color: white;
+}
+
+.device {
+    margin-left: 10px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.dev {
+    margin-left: 5px;
+    margin-top: 10px;
+    width: 30%;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.sta {
+    margin-left: 20px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.centered {
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.read {
+    background-color: white;
+    width: 30%;
+    color: black;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 2px solid black;
+    margin-left: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 50px;
+    margin-top: 35px;
+}
+
+.read:hover {
+    background-color: grey;
+    color: white;
+}
+
+.write {
+    background-color: white;
+    width: 30%;
+    color: black;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 2px solid black;
+    margin-left: 40px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 35px;
+}
+
+.write:hover {
+    background-color: grey;
+    color: white;
+}
+
+.rectangle {
+    margin-top: 30px;
+    vertical-align: top;
+    width: 550px;
+    height: 400px;
+    display: inline-block;
+    border: 2px solid white;
+    background-color: white;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.rectangle1 {
+    width: 450px;
+    height: 350px;
+    border: 2px solid white;
+    background-color: white;
+    padding: 15px 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    vertical-align: top;
+}
+
+.channel {
+    margin-left: 30px;
+    margin-right: 10px;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px; 
+}
+
+.drop {
+    margin-left: 40px;
+    height: 25px;
+    border: 2px solid black;
+    display: inline-block;
+    width: 150px;
+    vertical-align: middle;
+    border-radius: 7px;
+}
+
+.first {
+    margin-left: 30px;
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px;
+}
+
+.key {
+    margin-left: 40px;
+    height: 25px;
+    display: inline-block;
+    width: 150px;
+    border: 2px solid black;
+    vertical-align: middle;
+    border-radius: 7px;
+}
+.head{
+	margin-top: 10px;
+	text-align: center;
+}
+	
+</style>
 </head>
 
-<body style="background-color:#fff6ec;">
+<body style="background-color:#CAC4C2;">
 <h1><b>WELDING REMOTE</b></h1>
 
 <div class="rec">
@@ -46,9 +413,9 @@
     </div>
 </div>
 <div class="tab">
-  <button class="tablinks" onclick=screen1()>Device Configurtion Settings</button>
-   <button class="tablinks" onclick=screen2()>Relay Settings</button>
-    <button class="tablinks" onclick=screen3()>Analog Configuration Settings</button>
+  <button class="tab1" onclick=screen1()>Device Configuration Settings</button>
+   <button class="tab2" onclick=screen2()>Relay Settings</button>
+    <button class="tab3" onclick=screen3()>Analog Configuration Settings</button>
 </div>
 
 <div class="rect" id="screen1">
@@ -524,7 +891,7 @@ function generateDynamicHexData() {
 
 
 
-function writeclick() {
+async function writeclick() {
     if (!portOpened) {
         alert("Please connect port first.");
         return;
@@ -546,61 +913,48 @@ function writeclick() {
         console.log('Sending hex data 3:', hexData3);
         console.log('Sending hex data 4:', hexData4);
 
-        Promise.all([
-            fetch('http://localhost:5000/up', {
+        const delayBetweenRequests = 1000; 
+
+        try {
+            await sendHexDataWithDelay('http://localhost:5000/up', hexData1, 0);
+            await sendHexDataWithDelay('http://localhost:5000/up', hexData2, delayBetweenRequests);
+            await sendHexDataWithDelay('http://localhost:5000/up', hexData3, delayBetweenRequests);
+            await sendHexDataWithDelay('http://localhost:5000/up', hexData4, delayBetweenRequests);
+
+            console.log('All hex data sent successfully');
+            alert('All hex data sent successfully');
+        } catch (error) {
+            console.error('Error sending hex data:', error);
+            alert('Error sending hex data: ' + error.message);
+        } finally {
+            document.getElementById("status").value = "Write Completed";
+        }
+
+    } else {
+        document.getElementById("status").value = "Write failed";
+    }
+}
+
+function sendHexDataWithDelay(url, hexData, delay) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ hex_data: hexData1 })
-            }),
-            fetch('http://localhost:5000/up', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ hex_data: hexData2 })
-            }),
-            fetch('http://localhost:5000/up', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ hex_data: hexData3 })
-            }),
-            fetch('http://localhost:5000/up', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ hex_data: hexData4 })
+                body: JSON.stringify({ hex_data: hexData })
             })
-        ])
-        .then(responses => {
-            return Promise.all(responses.map(response => {
+            .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to send hex data: Server responded with ' + response.status);
                 }
                 return response.json();
-            }));
-        })
-        .then(dataArray => {
-            dataArray.forEach(data => {
-                console.log('Server response:', data);
-            });
-            console.log('All hex data sent successfully');
-            alert('All hex data sent successfully');
-        })
-        .catch(error => {
-            console.error('Error sending hex data:', error);
-            alert('Error sending hex data: ' + error.message);
-        })
-        .finally(() => {
-            document.getElementById("status").value = "Write Completed";
-        });
-    } else {
-        document.getElementById("status").value = "Write failed";
-    }
+            })
+            .then(data => resolve(data))
+            .catch(error => reject(error));
+        }, delay);
+    });
 }
 
 
@@ -636,7 +990,7 @@ function readclick() {
             const modeNo = data['Mode no']; 
             const devicename = data['Device name'];
             const deviceid = data['Device id'];
-			updateTextFields(modeNo, devicename, deviceid);
+			
             const channelData = data['Channel'];
             const syncData = data['Sync Address'];
             const destData = data['Destination Address'];
@@ -647,9 +1001,9 @@ function readclick() {
             const stdData = data['Standby Time'];
             const powData = data['Transmitter Power'];
             const battData = data['Low battery v'];
-
+			console.log('transmData before updateDropdowns:', transmData); 
             updateDropdowns(channelData, syncData, destData, sourceData, transmData, firData, secData, stdData, powData, battData);
-            
+            updateTextFields(modeNo, devicename, deviceid);
 			
         })
         .catch(error => {
@@ -671,7 +1025,7 @@ function updateDropdowns(channelData, syncData, destData, sourceData, transmData
     const standbySelect = document.getElementById('std');
     const transSelect = document.getElementById('pow');
     const lowSelect = document.getElementById('batt');
-
+	
     
     chnumberSelect.innerHTML = '';
     syncSelect.innerHTML = '';
@@ -690,20 +1044,6 @@ function updateDropdowns(channelData, syncData, destData, sourceData, transmData
     createOption(destSelect, destData);
     createOption(sourceSelect, sourceData);
 	
-
-    
-    const securekeys = ['DISABLE', 'ENABLE'];
-    securekeys.forEach((key, index) => {
-        const option = createOptionElement(index.toString(), key);
-        if (index.toString() === transmData.toString()) {
-            option.selected = true;
-        }
-       secureSelect.appendChild(option);
-    });
-
-
-	
-
 const firstSelectKeys = ['NONE', 'UP KEY', 'STOP KEY', 'START KEY', 'DOWN KEY'];
 firstSelectKeys.forEach((key, index) => {
     if (key === 'DOWN KEY') {
@@ -733,7 +1073,16 @@ secondSelectKeys.forEach((key, index) => {
     }
     secondSelect.appendChild(option);
 });
-
+ const securekeys = ['DISABLE', 'ENABLE'];
+ securekeys.forEach((key, index) => {
+        const option = document.createElement('option');
+        option.value = index.toString();
+        option.textContent = key;
+        if (index.toString() === transmData.toString()) {
+            option.selected = true;
+        }
+        secureSelect.appendChild(option);
+    });
 
 
     const standbyTimes = ['0.5', '1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5'];
