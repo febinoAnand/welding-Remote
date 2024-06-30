@@ -1,9 +1,10 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, make_response
 from flask_socketio import SocketIO
 import serial
 import serial.tools.list_ports
 import time
 from flask_cors import CORS
+import webview
 
 app = Flask(__name__)
 CORS(app)
@@ -63,6 +64,11 @@ def parse_received_data(received_bytes, hex_num):
         print("Error parsing received data:", e)
 
     return parsed_data
+
+@app.route('/')
+def welcome_msg():
+    return make_response("Welcome")
+
 
 @app.route('/up', methods=['GET'])
 def read_and_emit_data():
@@ -212,6 +218,8 @@ def handle_disconnect():
     print('disconnected')
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    # socketio.run(app, debug=True)
+    webview.create_window('Flask App', app)
+    webview.start()
 
 
